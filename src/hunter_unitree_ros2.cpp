@@ -8,9 +8,17 @@ HunterUnitreeRos2::HunterUnitreeRos2(): rclcpp::Node("hunter_unitree_ros2_node")
 //  std::string standup_topic = this->declare_parameter<std::string>("standup_topic", "/stand_up");
 //  std::string standdown_topic = this->declare_parameter<std::string>("standdown_topic", "/stand_down");
 //  std::string cmd_vel_topic = this->declare_parameter<std::string>("cmd_vel_topic", "cmd_vel");
-    standup_sub_ =  this->create_subscription<std_msgs::msg::Empty>("/stand_up", 1, std::bind(&HunterUnitreeRos2::StandUpCallback, this, std::placeholders::_1));
-    standdown_sub_ = this->create_subscription<std_msgs::msg::Empty>("/stand_down", 1, std::bind(&HunterUnitreeRos2::StandDownCallback, this, std::placeholders::_1));
-    cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 1, std::bind(&HunterUnitreeRos2::CmdVelCallback, this, std::placeholders::_1));
+standup_sub_ = this->create_subscription<std_msgs::msg::Empty>(
+    "/stand_up", 1,
+    std::bind(&HunterUnitreeRos2::StandUpCallback, this,
+              std::placeholders::_1));
+standdown_sub_ = this->create_subscription<std_msgs::msg::Empty>(
+    "/stand_down", 1,
+    std::bind(&HunterUnitreeRos2::StandDownCallback, this,
+              std::placeholders::_1));
+cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
+    "cmd_vel", 1,
+    std::bind(&HunterUnitreeRos2::CmdVelCallback, this, std::placeholders::_1));
 }
 
 
