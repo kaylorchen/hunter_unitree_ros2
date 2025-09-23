@@ -1,0 +1,11 @@
+[Unit]
+Description="bringup ros-humble-hunter-unitree-ros2"
+After=network.target
+
+[Service]
+ExecStart=/opt/ros/humble/bin/ros2 launch hunter_unitree_ros2 bringup.launch.py
+Restart=always
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target

@@ -28,4 +28,8 @@ add_executable(${PROJECT_NAME}_node src/main.cpp src/common/ros2_sport_client.cp
 target_include_directories(${PROJECT_NAME}_node PRIVATE include/common)
 ament_target_dependencies(${PROJECT_NAME}_node std_msgs unitree_api rclcpp geometry_msgs)
 
+install(TARGETS ${PROJECT_NAME}_node DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+
+
 ament_package()
