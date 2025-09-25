@@ -28,7 +28,10 @@ def generate_launch_description():
                 package="hunter_unitree_ros2",
                 executable="hunter_unitree_ros2_node",
                 output="screen",
-                parameters=[{"use_sim_time": use_sim_time}],
+                parameters=[
+                    {"use_sim_time": use_sim_time},
+                    {"wait_for_standup": 3},
+                ],
                 arguments=["--ros-args", "--log-level", "info"],
             ),
         ]
