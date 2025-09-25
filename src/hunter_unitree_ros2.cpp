@@ -25,6 +25,7 @@ cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
 void HunterUnitreeRos2::StandUpCallback(const std_msgs::msg::Empty::SharedPtr msg) {
   RCLCPP_INFO(this->get_logger(), "Unitree robot stands up");
   sport_client_.StandUp(req_);
+  sport_client_.BalanceStand(req_);
 }
 
 void HunterUnitreeRos2::StandDownCallback(const std_msgs::msg::Empty::SharedPtr msg) {
